@@ -1,0 +1,18 @@
+CREATE TABLE Answers (
+  answerId VARCHAR(255) PRIMARY KEY,
+  userId VARCHAR(255) NOT NULL,
+  questionId VARCHAR(255) NOT NULL,
+  body VARCHAR(255) NOT NULL,
+  createdAt DATETIME NOT NULL,
+  updatedAt DATETIME NOT NULL,
+  upVote VARCHAR(255) DEFAULT 0,
+  downVote VARCHAR(255) DEFAULT 0,
+  FOREIGN KEY (userId) REFERENCES Users(userId),
+  FOREIGN KEY (questionId) REFERENCES Questions(questionId)
+);
+
+
+
+ALTER TABLE Answers
+ADD upVote VARCHAR(255) DEFAULT 0,
+    downVote VARCHAR(255) DEFAULT 0;
