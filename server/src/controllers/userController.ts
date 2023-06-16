@@ -64,7 +64,7 @@ export const getUserById = async (
 export const getUsers = async (req: Request, res: Response) => {
   try {
     // Execute the stored procedure to get all users
-    const users = (await DatabaseHelper.exec("getUsers")).recordset;
+    const users = await (await DatabaseHelper.exec("getUsers")).recordset;
 
     res.status(200).json(users);
   } catch (error: any) {

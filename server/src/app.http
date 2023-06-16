@@ -1,3 +1,7 @@
+//USER REQUESTS
+
+
+
 //add a user
 POST http://localhost:4000/users
 Content-Type: application/json
@@ -13,3 +17,65 @@ Content-Type: application/json
     "email":"sam.ndambuki@outlook.com.com",
     "password":"N10234424008s"
 }
+
+###
+//gets all users
+GET http://localhost:4000/users
+
+###
+//gets user by id
+GET http://localhost:4000/users/bee2f213-39d2-42a3-990c-f9836fbb848e
+
+###
+//update users
+PUT http://localhost:4000/users/bee2f213-39d2-42a3-990c-f9836fbb848e
+Content-Type: application/json
+
+{
+    "userName":"Samuel Ndambuki",
+    "email":"sam.ndambuki@outlook.com.com",
+    "password":"N10234424008s"
+}
+
+###
+//delete a user
+DELETE http://localhost:4000/users/6edc3b33-8de6-497c-9fc1-4bd17c624a29
+
+
+
+
+
+
+###
+//TAG REQUESTS
+//add a tag
+POST http://localhost:4000/tags
+Content-Type: application/json
+
+{
+    "tagName":"Java"
+}
+
+###
+//get all tags
+GET http://localhost:4000/tags
+
+###
+//get tag by id
+GET http://localhost:4000/tags/240e474a-4969-4592-84fd-0d2743674366
+
+###
+//update a specific tag
+PUT http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
+Content-Type: application/json
+
+{
+    "tagName":"Typescript"
+}
+
+###
+//delete a specific tag
+DELETE http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
+
+
+

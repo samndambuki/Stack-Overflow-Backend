@@ -1,0 +1,7 @@
+CREATE OR ALTER PROCEDURE getTags
+AS
+BEGIN
+    SELECT *
+    FROM Tags
+    WHERE isDeleted = 0;
+END
