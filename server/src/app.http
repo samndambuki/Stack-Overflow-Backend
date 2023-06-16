@@ -1,0 +1,15 @@
+//add a user
+POST http://localhost:4000/users
+Content-Type: application/json
+
+# {
+#     "userName":"Samuel Ndambuki",
+#     "email":"sam.ndambuki08@gmail.com",
+#     "password":"N10234424008s"
+# }
+
+{
+    "userName":"Samuel Ndambuki",
+    "email":"sam.ndambuki@outlook.com.com",
+    "password":"N10234424008s"
+}

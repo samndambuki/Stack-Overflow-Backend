@@ -6,3 +6,9 @@ CREATE TABLE Users (
   createdAt DATETIME,
   updatedAt DATETIME
 );
+
+
+ALTER TABLE Users
+ADD isDeleted INT DEFAULT 0,
+    isAdmin INT DEFAULT 0,
+    emailsReceived INT DEFAULT 0;

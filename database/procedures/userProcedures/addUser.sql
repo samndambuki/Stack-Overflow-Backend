@@ -4,9 +4,9 @@ CREATE OR ALTER PROCEDURE addUser
     @userName VARCHAR(255),
     @email VARCHAR(255),
     @password VARCHAR(255),
-    @createdAt DATETIME,
-    @updatedAt DATETIME
-)
+    @createdAt DATETIME
+    /*@updatedAt DATETIME*/
+    )
 AS
 BEGIN
     INSERT INTO Users
@@ -15,8 +15,8 @@ BEGIN
         userName,
         email,
         password,
-        createdAt,
-        updatedAt
+        createdAt
+        /*updatedAt*/
     )
     VALUES
     (
@@ -24,7 +24,10 @@ BEGIN
         @userName,
         @email,
         @password,
-        @createdAt,
-        @updatedAt
+        @createdAt
+        /*@updatedAt*/
     )
 END
+
+
+SELECT * FROM Users
