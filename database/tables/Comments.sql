@@ -10,3 +10,7 @@ CREATE TABLE Comments (
   FOREIGN KEY (questionId) REFERENCES Questions(questionId),
   FOREIGN KEY (answerId) REFERENCES Answers(answerId)
 );
+
+
+ALTER TABLE Comments
+ADD isDeleted INT DEFAULT 0;

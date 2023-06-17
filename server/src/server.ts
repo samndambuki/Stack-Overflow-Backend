@@ -4,6 +4,7 @@ import userRoutes from './routes/userRoutes'
 import tagRoutes from './routes/tagRoutes';
 import answerRoutes from './routes/answerRoutes';
 import questionRoutes from './routes/questionRoutes';
+import commentsRoutes from './routes/commentsRoutes';
 
 const app=express()
 app.use(cors({
@@ -14,6 +15,7 @@ app.use('/users',userRoutes)
 app.use('/tags',tagRoutes)
 app.use('/answers',answerRoutes)
 app.use('/questions',questionRoutes)
+app.use('/comments',commentsRoutes)
 app.listen(4000, ()=>{
     console.log("Server Running...")
 })

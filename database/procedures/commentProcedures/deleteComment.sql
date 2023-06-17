@@ -1,9 +1,8 @@
 CREATE OR ALTER PROCEDURE deleteComment
-(
     @commentId VARCHAR(255)
-)
 AS
 BEGIN
-    DELETE FROM Comments
-    WHERE commentId = @commentId
+    UPDATE Comments
+    SET isDeleted = 1
+    WHERE commentId = @commentId;
 END
