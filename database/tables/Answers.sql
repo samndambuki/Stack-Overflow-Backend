@@ -13,6 +13,12 @@ CREATE TABLE Answers (
 
 
 
+-- ALTER TABLE Answers
+-- ADD upVote VARCHAR(255) DEFAULT 0,
+--     downVote VARCHAR(255) DEFAULT 0;
+
 ALTER TABLE Answers
-ADD upVote VARCHAR(255) DEFAULT 0,
-    downVote VARCHAR(255) DEFAULT 0;
+ADD isDeleted INT DEFAULT 0;
+
+
+SELECT * FROM Answers;
