@@ -31,3 +31,5 @@ END
 
 
 SELECT * FROM Users
+
+DELETE FROM Users;

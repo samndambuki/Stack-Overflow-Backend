@@ -9,3 +9,7 @@ CREATE TABLE Questions (
   updatedAt DATETIME,
   FOREIGN KEY (userId) REFERENCES Users(userId)
 );
+
+
+ALTER TABLE Questions
+ADD isDeleted INT DEFAULT 0;

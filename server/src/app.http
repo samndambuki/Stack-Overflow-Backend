@@ -6,15 +6,9 @@
 POST http://localhost:4000/users
 Content-Type: application/json
 
-# {
-#     "userName":"Samuel Ndambuki",
-#     "email":"sam.ndambuki08@gmail.com",
-#     "password":"N10234424008s"
-# }
-
 {
     "userName":"Samuel Ndambuki",
-    "email":"sam.ndambuki@outlook.com.com",
+    "email":"sam.ndambuki@outlook.com",
     "password":"N10234424008s"
 }
 
@@ -79,3 +73,93 @@ DELETE http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
 
 
 
+
+
+###
+//ANSWER REQUESTS
+//add an answer
+POST http://localhost:4000/answers
+Content-Type: application/json
+
+{
+    "userId":"",
+    "questionId":"",
+    "body":"",
+    "createdAt":"",
+    " updatedAt":"",
+    "upVote":"",
+    "downVote":"",
+}
+
+
+###
+//get all answers
+GET http://localhost:4000/answers
+
+###
+//get answer by id
+GET http://localhost:4000/answers/bee2f213-39d2-42a3-990c-f9836fbb848e
+
+###
+//update answer
+PUT http://localhost:4000/users/bee2f213-39d2-42a3-990c-f9836fbb848e
+Content-Type: application/json
+
+{
+    "userId":"",
+    "questionId":"",
+    "body":"",
+    "createdAt":"",
+    " updatedAt":"",
+    "upVote":"",
+    "downVote":"",
+}
+
+###
+//delete an answer
+DELETE http://localhost:4000/answers/6edc3b33-8de6-497c-9fc1-4bd17c624a29
+
+
+
+
+
+
+###
+# QUESTION ROUTES
+//adds a question
+POST http://localhost:4000/QUESTIONS
+Content-Type: application/json
+
+{
+    "userId":"",
+    "title":"",
+    "details":"",
+    "tried":"",
+    "tags":""
+}
+
+###
+//gets all questions
+GET http://localhost:4000/questions
+
+###
+//gets question by id
+GET http://localhost:4000/questions/bee2f213-39d2-42a3-990c-f9836fbb848e
+
+###
+//updates a specific question
+PUT http://localhost:4000/questions/bee2f213-39d2-42a3-990c-f9836fbb848e
+Content-Type: application/json
+
+{
+    "userId":"",
+    "title":"",
+    "details":"",
+    "tried":"",
+    "tags":""
+}
+
+
+###
+//deletes a specific question
+DELETE http://localhost:4000/questions/6edc3b33-8de6-497c-9fc1-4bd17c624a29
