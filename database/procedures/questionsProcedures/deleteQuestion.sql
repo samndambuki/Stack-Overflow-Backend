@@ -1,8 +1,10 @@
-CREATE OR ALTER PROCEDURE deleteQuestion
-    @questionId VARCHAR(255)
+CREATE OR ALTER PROCEDURE deleteQuestionTag
+    @questionId VARCHAR(255),
+    @tagId VARCHAR(255)
 AS
 BEGIN
-    UPDATE Questions
+    UPDATE QuestionTags
     SET isDeleted = 1
-    WHERE questionId = @questionId;
+    WHERE questionId = @questionId
+    AND tagId = @tagId;
 END

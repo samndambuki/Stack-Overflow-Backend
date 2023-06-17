@@ -142,3 +142,5 @@ export const getCommentsByAnswerId = async (req: Request<{ answerId: string }>, 
     return res.status(500).json(`ERROR: ${error.message}`);
   }
 };
+
+

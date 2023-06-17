@@ -4,3 +4,8 @@ CREATE TABLE QuestionTags (
   FOREIGN KEY (questionId) REFERENCES Questions(questionId),
   FOREIGN KEY (tagId) REFERENCES Tags(tagId)
 );
+
+
+ALTER TABLE QuestionTags
+ADD isDeleted INT DEFAULT 0;
+
