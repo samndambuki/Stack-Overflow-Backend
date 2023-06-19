@@ -25,12 +25,12 @@ const sendWelcomeEmail = () => __awaiter(void 0, void 0, void 0, function* () {
     // establish a connection with the database
     const pool = yield mssql_1.default.connect(config_1.sqlConfig);
     const users = (yield (yield pool.request()).execute('getUsersWithEmailNotSent')).recordset;
-    console.log(users);
+    // console.log(users);
     //loop through and send an email
     for (let user of users) {
         //send an email
         //create a message option
-        ejs_1.default.renderFile('Templates/welcome.ejs', { name: user.userName }, (err, html) => __awaiter(void 0, void 0, void 0, function* () {
+        ejs_1.default.renderFile('templates/welcome.ejs', { name: user.userName }, (err, html) => __awaiter(void 0, void 0, void 0, function* () {
             //send email
             try {
                 let messageOptions = {
@@ -39,12 +39,13 @@ const sendWelcomeEmail = () => __awaiter(void 0, void 0, void 0, function* () {
                     subject: "Welcome Email",
                     html
                 };
+                // console.log(html);
+                // console.log(err);
                 // Send Mail
                 yield (0, sendMail_1.sendMail)(messageOptions);
-                const request = new mssql_1.default.Request();
+                const request = new mssql_1.default.Request(pool);
+                request.input('userId', mssql_1.default.VarChar(255), user.userId);
                 //update the database that the email was sent
-                yield pool.request();
-                request.input('userId', mssql_1.default.VarChar(255), user.userId); // add the @userId parameter
                 yield request.execute('updateUserEmailSent');
             }
             catch (error) {

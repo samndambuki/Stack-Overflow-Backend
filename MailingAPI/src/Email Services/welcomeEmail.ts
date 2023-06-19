@@ -14,12 +14,12 @@ export const sendWelcomeEmail = async () => {
     // establish a connection with the database
     const pool = await mssql.connect(sqlConfig);
     const users: User[] = (await (await pool.request()).execute('getUsersWithEmailNotSent')).recordset
-    console.log(users);
+    // console.log(users);
     //loop through and send an email
     for (let user of users) {
         //send an email
         //create a message option
-        ejs.renderFile('Templates/welcome.ejs', { name: user.userName }, async (err, html) => {
+        ejs.renderFile('templates/welcome.ejs', { name: user.userName }, async (err, html) => {
             //send email
             try {
 
@@ -29,12 +29,14 @@ export const sendWelcomeEmail = async () => {
                     subject: "Welcome Email",
                     html
                 }
+                // console.log(html);
+                // console.log(err);
+                
                 // Send Mail
                 await sendMail(messageOptions);
-                const request = new mssql.Request();
+                const request = new mssql.Request(pool);
+                request.input('userId',mssql.VarChar(255),user.userId)
                 //update the database that the email was sent
-                await pool.request()
-                request.input('userId', mssql.VarChar(255), user.userId) // add the @userId parameter
                 await request.execute('updateUserEmailSent')
             } catch (error) {
                 console.error(error);

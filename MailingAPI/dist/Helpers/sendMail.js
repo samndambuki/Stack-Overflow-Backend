@@ -24,7 +24,7 @@ let configOptions = {
     port: 587,
     auth: {
         user: process.env.EMAIL,
-        pass: process.env.PASSWORD
+        pass: 'lkzjflfxxwfkvxis'
     }
 };
 function createTransporter(configOpts) {
@@ -33,8 +33,11 @@ function createTransporter(configOpts) {
 function sendMail(messageOptions) {
     return __awaiter(this, void 0, void 0, function* () {
         let transporter = createTransporter(configOptions);
+        console.log(process.env.EMAIL);
+        console.log(process.env.PWD);
         yield transporter.sendMail(messageOptions, (err, response) => {
             console.log(response);
+            console.log(err);
         });
     });
 }

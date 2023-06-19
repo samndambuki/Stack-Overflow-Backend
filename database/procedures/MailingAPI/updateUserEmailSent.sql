@@ -6,3 +6,6 @@ BEGIN
     SET emailSent = 1
     WHERE userId = @userId;
 END
+
+
+DROP PROCEDURE updateUserEmailSent;

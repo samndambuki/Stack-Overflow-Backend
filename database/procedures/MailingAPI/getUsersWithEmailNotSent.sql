@@ -3,7 +3,7 @@ AS
 BEGIN
     SELECT *
     FROM Users
-    WHERE emailsReceived = 0;
+    WHERE emailSent = 0;
 END
 
 

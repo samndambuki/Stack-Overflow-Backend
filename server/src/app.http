@@ -6,11 +6,24 @@
 POST http://localhost:4000/users
 Content-Type: application/json
 
+# {
+#     "userName":"Samuel Ndambuki",
+#     "email":"sam.ndambuki@outlook.com",
+#     "password":"N10234424008s"
+# }
+
+# {
+#     "userName":"Samuel Ndambuki",
+#     "email":"samuelndambuki401@gmail.com",
+#     "password":"N10234424008s"
+# }
+
 {
-    "userName":"Samuel Ndambuki",
-    "email":"sam.ndambuki@outlook.com",
-    "password":"N10234424008s"
+    "userName":"Esther Muchoki",
+    "email":"muchokiesther8@gmail.com",
+    "password":"Mesther1"
 }
+
 
 ###
 //gets all users

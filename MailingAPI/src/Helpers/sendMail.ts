@@ -10,7 +10,7 @@ let configOptions = {
     port:587,
     auth:{
         user:process.env.EMAIL,
-        pass:process.env.PASSWORD
+        pass:'lkzjflfxxwfkvxis'
     }
 }
 
@@ -20,9 +20,13 @@ function createTransporter(configOpts:any){
 
 export async function sendMail(messageOptions:any){
     let transporter = createTransporter(configOptions);
-
+        console.log(process.env.EMAIL);
+        console.log(process.env.PWD);
+        
     await transporter.sendMail(messageOptions,(err,response)=>{
         console.log(response);
+        console.log(err);
+        
     })
 }
 
