@@ -13,7 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 // Controller to add a new user
 export const addUser = async (req: Request, res: Response) => {
   try {
-    const { userName, email, password } = req.body;
+    const { userName, email, password,isAdmin } = req.body;
 
     //validate first
     const { error } = registrationSchema.validate(req.body);
@@ -39,6 +39,7 @@ export const addUser = async (req: Request, res: Response) => {
       email,
       password: hashedPassword,
       createdAt: currentDateTime,
+      isAdmin:isAdmin || false
     });
 
     res.status(201).json({
@@ -140,55 +141,32 @@ export const deleteUser = async (
   }
 };
 
-//login operation
 export const loginUser = async (req: Request, res: Response) => {
   try {
-    //get request from body and strong type
     const { email, password } = req.body as { email: string; password: string };
-    console.log(email);
-    console.log(password);
 
-    //check if email provided is correct - yes - user exists - no- user doesnt exist
-    let user = await (
-      await DatabaseHelper.exec("GetUserByEmail", { email })
-    ).recordset;
+    // Retrieve the user from the database based on the email
+    const user = await DatabaseHelper.exec('GetUserByEmail', { email });
 
-    console.log("OUTPUT", user);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!user.recordset || user.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
     }
 
-    let validPassword = await bcrypt.compare(password, user[0].password);
+    const userData = user.recordset[0] as User;
+    const { password: hashedPassword, isAdmin, ...payload } = userData;
 
-    // console.log(user[0].password)
-
-    console.log(validPassword);
-
+    // Compare the provided password with the hashed password
+    const validPassword = await bcrypt.compare(password, hashedPassword);
     if (!validPassword) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: 'User not found' });
     }
 
-    const payload = user.map(
-      (users) => {
-        const {
-          password,
-          isDeleted,
-          emailSent,
-          createdAt,
-          updatedAt,
-          ...rest
-        } = users;
-        return rest;
-      }
-    );
-
-    //token
-    const token = jwt.sign(payload[0], process.env.SECRET_KEY as string, {
-      expiresIn: "360000s",
+    // Generate the JWT token
+    const token = jwt.sign({ ...payload, isAdmin }, process.env.SECRET_KEY as string, {
+      expiresIn: '360000s',
     });
 
-    return res.json({ message: "Login Successful!!", token });
+    return res.json({ message: 'Login Successful!', token, isAdmin });
   } catch (error: any) {
     return res.status(500).json(error.message);
   }

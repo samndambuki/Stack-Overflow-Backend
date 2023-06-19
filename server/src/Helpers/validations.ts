@@ -9,5 +9,7 @@ export const registrationSchema = joi.object({
     email:joi.string().email(),
     password:joi.string().pattern(
         new RegExp('^[a-zA-Z0-9]{3,30}$'),
-    )
+    ),
+    // Add the isAdmin field with a default value of false
+    isAdmin: joi.boolean().default(false)
 })

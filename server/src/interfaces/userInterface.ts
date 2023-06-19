@@ -8,4 +8,5 @@ export interface User {
     createdAt:string
     updatedAt:string
     isDeleted:number
+    isAdmin:boolean
 }

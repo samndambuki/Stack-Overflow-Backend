@@ -18,11 +18,33 @@ Content-Type: application/json
 #     "password":"N10234424008s"
 # }
 
+# {
+#     "userName":"Jonathan Ndambuki",
+#     "email":"jonathan@gmail.com",
+#     "password":"N10234424008s"
+# }
+
+# {
+#   "userName": "Samuel Ndambuki",
+#   "email": "sam.ndambuki08@gmail.com",
+#   "password": "N10234424008s"
+# }
+
+# {
+#     "userName":"Irfan Ghat",
+#     "email":"irfanghat@gmail.com",
+#     "password":"N10238114040s",
+#     "isAdmin":"true"
+# }
+
+
 {
-    "userName":"Jonathan Ndambuki",
-    "email":"jonathan@gmail.com",
-    "password":"N10234424008s"
+    "userName":"Elias",
+    "email":"elias@gmail.com",
+    "password":"N10238114040s"
 }
+
+
 
 
 ###
@@ -54,11 +76,20 @@ DELETE http://localhost:4000/users/6edc3b33-8de6-497c-9fc1-4bd17c624a29
 POST http://localhost:4000/users/login
 Content-Type: application/json
 
-{
-    "email":"jonathan@gmail.com",
-    "password":"N10234424008s"
-}
+# {
+#    "email":"irfanghat@gmail.com",
+#     "password":"N10238114040s"
+# }
 
+#  {
+#     "email":"archangelngugi@gmail.com",
+#     "password":"N10238114040s"
+#  }
+
+ {
+    "email":"elias@gmail.com",
+    "password":"N10238114040s"
+ }
 
 
 
