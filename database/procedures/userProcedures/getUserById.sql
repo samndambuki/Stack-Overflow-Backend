@@ -6,3 +6,5 @@ BEGIN
 END;
 
 
+DROP PROCEDURE getUserById;
+

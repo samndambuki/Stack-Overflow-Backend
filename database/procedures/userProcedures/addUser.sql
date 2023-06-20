@@ -11,6 +11,8 @@ BEGIN
   VALUES (@userId, @userName, @email, @password, @createdAt, @isAdmin)
 END
 
+DROP PROCEDURE addUser;
+
 
 SELECT * FROM Users
 

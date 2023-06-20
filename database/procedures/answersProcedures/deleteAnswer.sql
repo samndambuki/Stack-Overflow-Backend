@@ -6,3 +6,6 @@ BEGIN
     SET isDeleted = 1
     WHERE answerId = @answerId;
 END
+
+
+DROP PROCEDURE deleteAnswer;

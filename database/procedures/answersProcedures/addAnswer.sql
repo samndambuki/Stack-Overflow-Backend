@@ -13,4 +13,6 @@ BEGIN
 END
 
 
+DROP PROCEDURE addAnswer;
+
 SELECT * FROM Answers

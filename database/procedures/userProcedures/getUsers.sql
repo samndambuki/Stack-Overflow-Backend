@@ -5,3 +5,6 @@ BEGIN
     FROM Users
     WHERE isDeleted = 0;
 END;
+
+
+DROP PROCEDURE getUsers;

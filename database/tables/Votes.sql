@@ -1,0 +1,12 @@
+CREATE TABLE Votes (
+  voteId VARCHAR(255) PRIMARY KEY,
+  userId VARCHAR(255) NOT NULL,
+  answerId VARCHAR(255) NOT NULL,
+  upVote INT DEFAULT 0,
+  downVote INT DEFAULT 0,
+  FOREIGN KEY (userId) REFERENCES Users(userId),
+  FOREIGN KEY (answerId) REFERENCES Answers(answerId)
+);
+
+
+DROP TABLE Votes;

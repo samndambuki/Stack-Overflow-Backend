@@ -6,6 +6,16 @@ import moment from 'moment';
 // GET all Questions
 export const getQuestions = async (req: Request, res: Response) => {
   try {
+
+     // Check if the current user is an admin
+     const isAdmin = req.headers.isAdmin === 'true';
+
+     if (!isAdmin) {
+       return res.status(401).json({
+         message: 'Only admins can access this endpoint.',
+       });
+     }
+
     const questions = (await DatabaseHelper.exec('getQuestions')).recordset;
 
     if (!questions) {
@@ -101,6 +111,18 @@ export const updateQuestion = async (req: Request<{ questionId: string }>, res: 
 // DELETE Question
 export const deleteQuestion = async (req: Request<{ questionId: string }>, res: Response) => {
   try {
+
+     // Check if the current user is an admin or a user
+     const isAdmin = req.headers.isAdmin === 'true';
+     const isUser = req.headers.isUser === 'true';
+ 
+     if (!isAdmin && !isUser) {
+       return res.status(401).json({
+         message: 'Only admins and users can delete questions.',
+       });
+     }
+
+     
     const { questionId } = req.params;
 
     const question = (await DatabaseHelper.exec('getQuestionById', { questionId })).recordset[0];

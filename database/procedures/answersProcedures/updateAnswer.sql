@@ -17,3 +17,6 @@ BEGIN
         downVote = @downVote
     WHERE answerId = @answerId AND isDeleted = 0;
 END
+
+
+DROP PROCEDURE updateAnswer;

@@ -56,6 +56,7 @@ export const getUserById = async (
   res: Response
 ) => {
   try {
+
     const { userId } = req.params;
 
     // Execute the stored procedure to get the user by ID
@@ -80,6 +81,15 @@ export const getUserById = async (
 // Controller to get all users
 export const getUsers = async (req: Request, res: Response) => {
   try {
+     // Check if the current user is an admin
+     const isAdmin = req.headers.isAdmin === "true";
+
+     if (!isAdmin) {
+       return res.status(401).json({
+         message: "Only admins can get all users.",
+       });
+     }
+    
     // Execute the stored procedure to get all users
     const users = await (await DatabaseHelper.exec("getUsers")).recordset;
 
@@ -127,6 +137,16 @@ export const deleteUser = async (
 ) => {
   try {
     const { userId } = req.params;
+
+    // Check if the current user is an admin
+    const isAdmin = req.headers.isAdmin === "true";
+
+    if (!isAdmin) {
+      return res.status(401).json({
+        message: "Only admins can get all users.",
+      });
+    }
+  
 
     // Execute the stored procedure to delete the user
     await DatabaseHelper.exec("deleteUser", {

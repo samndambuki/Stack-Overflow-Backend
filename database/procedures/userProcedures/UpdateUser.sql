@@ -17,3 +17,6 @@ BEGIN
     WHERE
         userId = @userId
 END
+
+
+DROP PROCEDURE updateuser;

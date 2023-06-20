@@ -8,4 +8,6 @@ BEGIN
 END
 
 
+DROP PROCEDURE getUserByEmail;
+
 EXEC GetUserByEmail @email="samuelndambuki401@gmail.com"

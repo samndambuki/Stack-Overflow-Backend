@@ -12,5 +12,9 @@ CREATE TABLE Comments (
 );
 
 
+-- remove foreign key constraint
+ALTER TABLE Comments
+DROP CONSTRAINT FK__Comments__answer__36B12243;
+
 ALTER TABLE Comments
 ADD isDeleted INT DEFAULT 0;

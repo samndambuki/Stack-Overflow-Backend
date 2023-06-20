@@ -7,4 +7,6 @@ BEGIN
 END;
 
 
+DROP PROCEDURE deleteUser;
+
 
