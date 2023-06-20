@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE deleteAllQuestions
+AS
+BEGIN
+    DELETE FROM Questions;
+END
