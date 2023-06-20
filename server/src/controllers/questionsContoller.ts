@@ -2,19 +2,20 @@ import { Request, Response } from 'express';
 import { v4 as v4questionId } from 'uuid';
 import { DatabaseHelper } from '../databaseHelper';
 import moment from 'moment';
+import { ExtendedRequest } from '../interfaces/ExtendedRequest';
 
 // GET all Questions
-export const getQuestions = async (req: Request, res: Response) => {
+export const getQuestions = async (req: ExtendedRequest, res: Response) => {
   try {
 
-     // Check if the current user is an admin
-     const isAdmin = req.headers.isAdmin === 'true';
 
-     if (!isAdmin) {
-       return res.status(401).json({
-         message: 'Only admins can access this endpoint.',
-       });
-     }
+    const role = req.info?.isAdmin as boolean
+    
+    if (!role) {
+      return res.status(401).json({
+        message: "Only admins can get all questions",
+      });
+    }
 
     const questions = (await DatabaseHelper.exec('getQuestions')).recordset;
 
@@ -49,7 +50,7 @@ export const getQuestionById = async (req: Request<{ questionId: string }>, res:
 };
 
 // ADD Question
-export const addQuestion = async (req: Request, res: Response) => {
+export const addQuestion = async (req: ExtendedRequest, res: Response) => {
   try {
     const questionId = v4questionId();
     const { userId, title, details, tried, tags } = req.body;
@@ -78,7 +79,7 @@ export const addQuestion = async (req: Request, res: Response) => {
 export const updateQuestion = async (req: Request<{ questionId: string }>, res: Response) => {
   try {
     const { questionId } = req.params;
-    const { userId, title, details, tried, tags, updatedAt } = req.body;
+    const {title, details, tried, tags } = req.body;
 
     const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
@@ -92,7 +93,6 @@ export const updateQuestion = async (req: Request<{ questionId: string }>, res: 
 
     await DatabaseHelper.exec('updateQuestion', {
       questionId,
-      userId,
       title,
       details,
       tried,
@@ -109,19 +109,16 @@ export const updateQuestion = async (req: Request<{ questionId: string }>, res: 
 };
 
 // DELETE Question
-export const deleteQuestion = async (req: Request<{ questionId: string }>, res: Response) => {
+export const deleteQuestion = async (req: ExtendedRequest, res: Response) => {
   try {
 
-     // Check if the current user is an admin or a user
-     const isAdmin = req.headers.isAdmin === 'true';
-     const isUser = req.headers.isUser === 'true';
- 
-     if (!isAdmin && !isUser) {
-       return res.status(401).json({
-         message: 'Only admins and users can delete questions.',
-       });
-     }
-
+    const role = req.info?.isAdmin as boolean
+    
+    if (!role) {
+      return res.status(401).json({
+        message: "Only admins delete a question.",
+      });
+    }
      
     const { questionId } = req.params;
 
@@ -140,5 +137,31 @@ export const deleteQuestion = async (req: Request<{ questionId: string }>, res: 
     });
   } catch (error: any) {
     return res.status(500).json({ message: `Error: ${error.message}` });
+  }
+};
+
+//deletes all questions
+// DELETE All Questions
+export const deleteAllQuestions = async (req: ExtendedRequest, res: Response) => {
+  try {
+
+    const role = req.info?.isAdmin as boolean
+    
+    if (!role) {
+      return res.status(401).json({
+        message: "Only admins can delete all questions",
+      });
+    }
+
+    // Execute the stored procedure to delete all questions
+    await DatabaseHelper.exec('deleteAllQuestions');
+
+    return res.status(200).json({
+      message: 'All questions deleted successfully!',
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      message: `Error: ${error.message}`,
+    });
   }
 };

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { DatabaseHelper } from '../databaseHelper';
+import { ExtendedRequest } from '../interfaces/ExtendedRequest';
 
 // GET /tags
 export const getTags = async (req: Request, res: Response) => {
@@ -13,9 +14,18 @@ export const getTags = async (req: Request, res: Response) => {
 };
 
 // POST /tags
-export const addTag = async (req: Request, res: Response) => {
+export const addTag = async (req: ExtendedRequest, res: Response) => {
   try {
     const { tagName } = req.body;
+
+
+    const role = req.info?.isAdmin as boolean
+    
+    if (!role) {
+      return res.status(401).json({
+        message: "Only admins can add tags.",
+      });
+    }
 
     if (!tagName) {
       return res.status(400).json({ message: 'tagName is required' });
@@ -53,10 +63,17 @@ export const getTagById = async (req: Request<{ tagId: string }>, res: Response)
 };
 
 // PUT /tags/:tagId
-export const updateTag = async (req: Request<{ tagId: string }>, res: Response) => {
+export const updateTag = async (req: ExtendedRequest, res: Response) => {
   try {
     const { tagId } = req.params;
     const { tagName } = req.body;
+
+     // Check if the user is an admin
+     if (!req.info?.isAdmin) {
+      return res.status(401).json({
+        message: 'Only admins can update tags.',
+      });
+    }
 
     if (!tagName) {
       return res.status(400).json({ message: 'tagName is required' });
@@ -70,7 +87,7 @@ export const updateTag = async (req: Request<{ tagId: string }>, res: Response) 
 
     await DatabaseHelper.exec('updateTag', {
       tagId,
-      tagName,
+      newtagName:tagName,
     });
 
     res.status(200).json({ message: 'Tag updated successfully!', tagId });
@@ -80,9 +97,17 @@ export const updateTag = async (req: Request<{ tagId: string }>, res: Response) 
 };
 
 // DELETE /tags/:tagId
-export const deleteTag = async (req: Request<{ tagId: string }>, res: Response) => {
+export const deleteTag = async (req: ExtendedRequest, res: Response) => {
   try {
     const { tagId } = req.params;
+
+
+     // Check if the user is an admin
+     if (!req.info?.isAdmin) {
+      return res.status(401).json({
+        message: 'Only admins can update tags.',
+      });
+    }
 
     const tag = await DatabaseHelper.exec('getTagById', { tagId });
 

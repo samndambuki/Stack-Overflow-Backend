@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addQuestion, deleteQuestion, getQuestionById, getQuestions, updateQuestion } from "../controllers/questionsContoller";
+import { addQuestion, deleteAllQuestions, deleteQuestion, getQuestionById, getQuestions, updateQuestion } from "../controllers/questionsContoller";
 import { verifyToken } from "../Middlewares/verifyToken";
 
 // initialize router
@@ -15,5 +15,8 @@ questionRoutes.get('/:questionId',verifyToken,getQuestionById);
 questionRoutes.delete('/:questionId',verifyToken,deleteQuestion);  
 //updates a specific question
 questionRoutes.put('/:questionId',verifyToken,updateQuestion);   
+//deletes all questions
+questionRoutes.delete('',verifyToken,deleteAllQuestions); 
+
 // exports
 export default questionRoutes;

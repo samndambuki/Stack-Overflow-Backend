@@ -39,7 +39,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5
 
 {
     "userName":"Samuel Ndambuki",
-    "email":"sam.ndambuki08@gmail,com",
+    "email":"techflux6@gmail.com",
     "password":"N10234424008s"
 }
 
@@ -73,24 +73,29 @@ Content-Type: application/json
 //add a tag
 POST http://localhost:4000/tags
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjE6MjI6MTQuMDAwWiIsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjowLCJpYXQiOjE2ODcyODUzNDcsImV4cCI6MTY4NzY0NTM0N30.jr0qmcdN_cu_0Tdf0J2PnpQ5hpnUA72AHRnNajMuBVY
 
 
 {
-    "tagName":"Java"
+    "tagName":"Python"
 }
 
 ###
 //get all tags
 GET http://localhost:4000/tags
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjE6MjI6MTQuMDAwWiIsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjowLCJpYXQiOjE2ODcyODUzNDcsImV4cCI6MTY4NzY0NTM0N30.jr0qmcdN_cu_0Tdf0J2PnpQ5hpnUA72AHRnNajMuBVY
 
 ###
 //get tag by id
 GET http://localhost:4000/tags/240e474a-4969-4592-84fd-0d2743674366
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjE6MjI6MTQuMDAwWiIsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjowLCJpYXQiOjE2ODcyODUzNDcsImV4cCI6MTY4NzY0NTM0N30.jr0qmcdN_cu_0Tdf0J2PnpQ5hpnUA72AHRnNajMuBVY
+
 
 ###
 //update a specific tag
-PUT http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
+PUT http://localhost:4000/tags/240e474a-4969-4592-84fd-0d2743674366
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODY0NzEsImV4cCI6MTY4NzY0NjQ3MX0.-mNvT0FL7-l7Yz5NEOCdE5tdbM8Gapt9_nMng_5I_bM
 
 {
     "tagName":"Typescript"
@@ -98,7 +103,66 @@ Content-Type: application/json
 
 ###
 //delete a specific tag
-DELETE http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
+DELETE http://localhost:4000/tags/240e474a-4969-4592-84fd-0d2743674366
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjE6MjI6MTQuMDAwWiIsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjowLCJpYXQiOjE2ODcyODUzNDcsImV4cCI6MTY4NzY0NTM0N30.jr0qmcdN_cu_0Tdf0J2PnpQ5hpnUA72AHRnNajMuBVY
+
+
+
+
+####
+
+###
+# QUESTION ROUTES
+//ask a question
+POST http://localhost:4000/questions
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODY5MzQsImV4cCI6MTY4NzY0NjkzNH0.hCtTxAumk_Wq3Qxk5931-7KjG-Tm_uIla0DHHglAYLY
+
+{
+    "userId":"9ec4f077-e521-498a-8954-d6cbcef84230",
+    "title":"question1 ",
+    "details":"this is question 1",
+    "tried":"I tried question 1",
+    "tags":"Javascript"
+}
+
+###
+//gets all questions
+GET http://localhost:4000/questions
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+###
+//gets question by id
+GET http://localhost:4000/questions/00898f6b-4fd1-4479-9f09-9b462c44cf0f
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+
+###
+//updates a specific question
+PUT http://localhost:4000/questions/00898f6b-4fd1-4479-9f09-9b462c44cf0f
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+{
+    "title":"javascript error",
+    "details":"reference error",
+    "tried":"console.log(variablename)",
+    "tags":"javascript"
+}
+
+
+###
+//deletes a specific question
+DELETE http://localhost:4000/questions/00898f6b-4fd1-4479-9f09-9b462c44cf0f
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+
+###
+//deletes all questions
+DELETE http://localhost:4000/questions
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjE6MjI6MTQuMDAwWiIsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjowLCJpYXQiOjE2ODcyODg4NTUsImV4cCI6MTY4NzY0ODg1NX0.MEUiKg21iDS53lgOz3Yz14kgHmysgxiW24s9nTwMHW8
+
+
 
 
 
@@ -109,6 +173,7 @@ DELETE http://localhost:4000/tags/1a1b6a3c-9738-4ae8-8a4b-266c52622036
 //add an answer
 POST http://localhost:4000/answers
 Content-Type: application/json
+
 
 {
     "userId":"",
@@ -152,46 +217,6 @@ DELETE http://localhost:4000/answers/6edc3b33-8de6-497c-9fc1-4bd17c624a29
 
 
 
-
-###
-# QUESTION ROUTES
-//adds a question
-POST http://localhost:4000/QUESTIONS
-Content-Type: application/json
-
-{
-    "userId":"",
-    "title":"",
-    "details":"",
-    "tried":"",
-    "tags":""
-}
-
-###
-//gets all questions
-GET http://localhost:4000/questions
-
-###
-//gets question by id
-GET http://localhost:4000/questions/bee2f213-39d2-42a3-990c-f9836fbb848e
-
-###
-//updates a specific question
-PUT http://localhost:4000/questions/bee2f213-39d2-42a3-990c-f9836fbb848e
-Content-Type: application/json
-
-{
-    "userId":"",
-    "title":"",
-    "details":"",
-    "tried":"",
-    "tags":""
-}
-
-
-###
-//deletes a specific question
-DELETE http://localhost:4000/questions/6edc3b33-8de6-497c-9fc1-4bd17c624a29
 
 
 ###

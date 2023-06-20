@@ -1,0 +1,7 @@
+CREATE OR ALTER PROCEDURE deleteTag
+    @tagId VARCHAR(255)
+AS
+BEGIN
+    DELETE FROM Tags
+    WHERE tagId = @tagId;
+END
