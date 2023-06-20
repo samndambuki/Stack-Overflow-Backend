@@ -8,6 +8,7 @@ import { User } from "../interfaces/userInterface";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import path from "path";
+import { ExtendedRequest } from "../interfaces/ExtendedRequest";
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 // Controller to add a new user
@@ -79,17 +80,17 @@ export const getUserById = async (
 };
 
 // Controller to get all users
-export const getUsers = async (req: Request, res: Response) => {
+export const getUsers = async (req: ExtendedRequest, res: Response) => {
   try {
-     // Check if the current user is an admin
-     const isAdmin = req.headers.isAdmin === "true";
 
-     if (!isAdmin) {
+    const role = req.info?.isAdmin as boolean
+
+     if (!role) {
        return res.status(401).json({
          message: "Only admins can get all users.",
        });
      }
-    
+
     // Execute the stored procedure to get all users
     const users = await (await DatabaseHelper.exec("getUsers")).recordset;
 
@@ -101,11 +102,20 @@ export const getUsers = async (req: Request, res: Response) => {
 
 // Controller to update a user
 export const updateUser = async (
-  req: Request<{ userId: string }>,
+  req: ExtendedRequest,
   res: Response
 ) => {
   try {
     const { userId } = req.params;
+
+    const role = req.info?.isAdmin as boolean
+    
+    if (role) {
+      return res.status(401).json({
+        message: "Only users can update their profile",
+      });
+    }
+
     const { userName, email, password } = req.body;
 
     // Hash the password
@@ -132,20 +142,20 @@ export const updateUser = async (
 
 // Controller to delete a user
 export const deleteUser = async (
-  req: Request<{ userId: string }>,
+  req: ExtendedRequest,
   res: Response
 ) => {
   try {
     const { userId } = req.params;
 
-    // Check if the current user is an admin
-    const isAdmin = req.headers.isAdmin === "true";
-
-    if (!isAdmin) {
+    const role = req.info?.isAdmin as boolean
+    
+    if (!role) {
       return res.status(401).json({
         message: "Only admins can get all users.",
       });
     }
+
   
 
     // Execute the stored procedure to delete the user

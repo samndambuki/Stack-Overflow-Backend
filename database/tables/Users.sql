@@ -10,6 +10,11 @@ CREATE TABLE Users (
   isAdmin INT DEFAULT 0
 );
 
+
+ALTER TABLE Users
+ADD UNIQUE (email)
+
+
 -- retrieves foreign key statements associated with answers table
 SELECT
     obj.name AS ConstraintName,
@@ -81,6 +86,10 @@ DROP CONSTRAINT  FK__Comments__userId__34C8D9D1
 
 
 SELECT * FROM Users;
+
+DELETE FROM Users
+WHERE email = 'samuelndambuki401@gmail.com';
+
 
 
 

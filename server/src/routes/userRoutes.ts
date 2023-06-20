@@ -8,7 +8,7 @@ const userRoutes = Router();
 //gets all users
 userRoutes.get('',verifyToken,getUsers);  
 //adds a new user             
-userRoutes.post('',verifyToken,addUser);              
+userRoutes.post('',addUser);              
 //gets user by id    
 userRoutes.get('/:userId',verifyToken,getUserById);    
 //deletes a specific user
@@ -16,6 +16,6 @@ userRoutes.delete('/:userId',verifyToken,deleteUser);
 //updates a users
 userRoutes.put('/:userId', verifyToken,updateUser);   
 //logs in a user
-userRoutes.post('/login',verifyToken,loginUser)
+userRoutes.post('/login',loginUser)
 // exports
 export default userRoutes;
