@@ -1,4 +1,4 @@
-CREATE PROCEDURE addVote
+CREATE OR ALTER PROCEDURE addVote
     @voteId VARCHAR(255),
     @userId VARCHAR(255),
     @answerId VARCHAR(255),

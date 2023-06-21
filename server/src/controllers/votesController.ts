@@ -18,7 +18,7 @@ export const upvoteAnswer = async (req: Request<{ answerId: string; userId: stri
 
     // Check if the user has already upvoted
     const existingVote = await DatabaseHelper.exec('getVoteByAnswerAndUser', { answerId, userId });
-    if (existingVote) {
+    if (existingVote.recordset.length > 0) {
       return res.status(400).json({
         message: 'User has already upvoted this answer.',
       });
@@ -59,7 +59,7 @@ export const downvoteAnswer = async (req: Request<{ answerId: string; userId: st
 
     // Check if the user has already downvoted
     const existingVote = await DatabaseHelper.exec('getVoteByAnswerAndUser', { answerId, userId });
-    if (existingVote) {
+    if (existingVote.recordset.length > 0) {
       return res.status(400).json({
         message: 'User has already downvoted this answer.',
       });

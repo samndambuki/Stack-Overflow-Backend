@@ -1,4 +1,4 @@
-CREATE PROCEDURE getVoteByAnswerAndUser
+CREATE OR ALTER PROCEDURE getVoteByAnswerAndUser
     @answerId VARCHAR(255),
     @userId VARCHAR(255)
 AS

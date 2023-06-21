@@ -1,21 +1,10 @@
 import { Request, Response } from 'express';
 import { DatabaseHelper } from '../databaseHelper';
-import { ExtendedRequest } from '../interfaces/ExtendedRequest';
 
 // Add Question Tag
-export const addQuestionTag = async (req: ExtendedRequest, res: Response) => {
+export const addQuestionTag = async (req:Request, res: Response) => {
     try {
         const { questionId, tagId } = req.body;
-
-
-    const role = req.info?.isAdmin as boolean
-    
-    if (!role) {
-      return res.status(401).json({
-        message: "Only admins can get all users.",
-      });
-    }
-
 
         // Execute the stored procedure to add the question tag
         await DatabaseHelper.exec('addQuestionTag', { questionId, tagId });
@@ -88,7 +77,7 @@ export const getQuestionTagsByTagId = async (req: Request<{ tagId: string }>, re
         const { tagId } = req.params;
 
         // Execute the stored procedure to get question tags by tag ID
-        const questionTags = (await DatabaseHelper.exec('getQuestionTagsByTagId', { tagId })).recordset;
+        const questionTags = (await DatabaseHelper.exec('getQuestionTagsByTagId', { tagId })).recordset[0];
 
         return res.status(200).json(questionTags);
     } catch (error: any) {

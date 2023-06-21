@@ -123,7 +123,7 @@ export const getCommentById = async (req: Request<{ commentId: string }>, res: R
 export const getCommentsByQuestionId = async (req: Request<{ questionId: string }>, res: Response) => {
   try {
     const { questionId } = req.params;
-    const comments = (await DatabaseHelper.exec('getCommentsByQuestionId', { questionId })).recordset;
+    const comments = (await DatabaseHelper.exec('getCommentsByQuestionId', { questionId })).recordset[0];
 
     return res.status(200).json(comments);
   } catch (error: any) {

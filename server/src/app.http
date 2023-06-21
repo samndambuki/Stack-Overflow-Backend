@@ -134,7 +134,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQx
 
 ###
 //gets question by id
-GET http://localhost:4000/questions/00898f6b-4fd1-4479-9f09-9b462c44cf0f
+GET http://localhost:4000/questions/942da41d-4d83-4f24-8984-27211549489f
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 
@@ -174,45 +174,63 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5
 //add an answer
 POST http://localhost:4000/answers
 Content-Type: application/json
-token:
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 {
-    "userId":"",
-    "questionId":"",
-    "body":"",
-    "createdAt":"",
-    " updatedAt":"",
-    "upVote":"",
-    "downVote":"",
+    "userId":"9ec4f077-e521-498a-8954-d6cbcef84230",
+    "questionId":"942da41d-4d83-4f24-8984-27211549489f",
+    "body":"this is the answer"  
 }
 
 
 ###
 //get all answers
 GET http://localhost:4000/answers
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
 
 ###
 //get answer by id
-GET http://localhost:4000/answers/bee2f213-39d2-42a3-990c-f9836fbb848e
+GET http://localhost:4000/answers/c1a6bf7d-f3e9-4e19-9808-2f620705845a
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //update answer
-PUT http://localhost:4000/users/bee2f213-39d2-42a3-990c-f9836fbb848e
+PUT http://localhost:4000/answers/c1a6bf7d-f3e9-4e19-9808-2f620705845a
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 {
-    "userId":"",
-    "questionId":"",
-    "body":"",
-    "createdAt":"",
-    " updatedAt":"",
-    "upVote":"",
-    "downVote":"",
+    "userId":"9ec4f077-e521-498a-8954-d6cbcef84230",
+    "questionId": "942da41d-4d83-4f24-8984-27211549489f",
+    "body":"updated this answer"
 }
 
 ###
 //delete an answer
-DELETE http://localhost:4000/answers/6edc3b33-8de6-497c-9fc1-4bd17c624a29
+DELETE http://localhost:4000/answers/c1a6bf7d-f3e9-4e19-9808-2f620705845a
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+
+
+# VOTES REQUESTS
+####
+//upvote an asnwer
+POST http://localhost:4000/votes/upvote/3d4f228f-68b8-4a02-8331-8c42b0c93285/9ec4f077-e521-498a-8954-d6cbcef84230
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+{
+
+}
+
+###
+//downvote an answer
+POST http://localhost:4000/votes/downvote/3d4f228f-68b8-4a02-8331-8c42b0c93285/9ec4f077-e521-498a-8954-d6cbcef84230
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
+
 
 
 
@@ -225,18 +243,19 @@ DELETE http://localhost:4000/answers/6edc3b33-8de6-497c-9fc1-4bd17c624a29
 //add a comment
 POST http://localhost:4000/comments
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 {
-    "userId":"",
-    "questionId":"",
-    "answerId":"",
-    "body":""
+    "userId":"9ec4f077-e521-498a-8954-d6cbcef84230",
+    "questionId":"942da41d-4d83-4f24-8984-27211549489f",
+    "answerId":"3d4f228f-68b8-4a02-8331-8c42b0c93285",
+    "body":"I love this answer"
 }
 
 ###
 
 //update a comment comments/comment id
-PUT http://localhost:4000/comments/bee2f213-39d2-42a3-990c-f9836fbb848e
+PUT http://localhost:4000/comments/bee2f213-39d2-
 Content-Type: application/json
 
 {
@@ -247,22 +266,28 @@ Content-Type: application/json
 ###
 //get all comments
 GET http://localhost:4000/comments
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //get comment by comment id /comments/comment id
-GET http://localhost:4000/comments/bee2f213-39d2-42a3-990c-f9836fbb848e
+GET http://localhost:4000/comments/f51d6034-cfbb-45aa-a0f4-9e9129c3ba05
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //get comment by question id /comments/questionId
-GET http://localhost:4000/comments/bee2f213-39d2-42a3-990c-f9836fbb848e
+GET http://localhost:4000/comments/942da41d-4d83-4f24-8984-27211549489f
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //get comment by answer id /comments/answerId
-GET http://localhost:4000/comments/bee2f213-39d2-42a3-990c-f9836fbb848e
+GET http://localhost:4000/comments/3d4f228f-68b8-4a02-8331-8c42b0c93285
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //delete a comment /comments/comment id
-DELETE http://localhost:4000/comments/6edc3b33-8de6-497c-9fc1-4bd17c624a29
+DELETE http://localhost:4000/comments/f51d6034-cfbb-45aa-a0f4-9e9129c3ba05
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
 
 
 
@@ -270,51 +295,45 @@ DELETE http://localhost:4000/comments/6edc3b33-8de6-497c-9fc1-4bd17c624a29
 ###
 # QUESTION TAG REQUESTS
 //add question tag
-POST http://localhost:4000/questionTags
+POST http://localhost:4000/questionTag
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
 Content-Type: application/json
 
+
 {
-    "questionId": "123456",
-    "tagId": "789012"
+    "questionId": "942da41d-4d83-4f24-8984-27211549489f",
+    "tagId": "240e474a-4969-4592-84fd-0d2743674366"
 }
 
 //update a question tag
-PUT http://localhost:4000/questionTags/questionTag/123456/789012
+PUT http://localhost:4000/questionTag/942da41d-4d83-4f24-8984-27211549489f/240e474a-4969-4592-84fd-0d2743674366
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
 Content-Type: application/json
 
 {
     "newTagId": ""
 }
 
-###
-//get all question tags
-GET http://localhost:4000/questionTags
 
 ###
 //get question tags by tag id
-GET http://localhost:4000/questionTags/questionTag/789012
+GET http://localhost:4000/questionTag/240e474a-4969-4592-84fd-0d2743674366
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 ###
 //get question tags by question id
-GET http://localhost:4000/questionTags/questionTag/123456
+GET http://localhost:4000/questionTag/942da41d-4d83-4f24-8984-27211549489f
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+
 
 
 ###
 //delete a question tag
-DELETE http://localhost:4000/questionTags/questionTag/123456/789012
+DELETE http://localhost:4000/questionTag/942da41d-4d83-4f24-8984-27211549489f/240e474a-4969-4592-84fd-0d2743674366
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 
 
-
-
-# VOTES REQUESTS
-####
-//upvote an asnwer
-POST http://localhost:4000/votes/upvote
-Content-Type: application/json
-
-
-//downvote an asnwer
-POST http://localhost:4000/votes/upvote
-Content-Type: application/json
 

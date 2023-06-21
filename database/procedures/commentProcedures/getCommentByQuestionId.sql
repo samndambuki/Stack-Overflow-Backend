@@ -8,3 +8,5 @@ BEGIN
     WHERE C.questionId = @questionId
         AND C.isDeleted = 0;
 END
+
+

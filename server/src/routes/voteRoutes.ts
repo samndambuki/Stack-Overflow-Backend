@@ -6,8 +6,8 @@ import { downvoteAnswer, upvoteAnswer } from "../controllers/votesController";
 const voteRoutes = Router();
 // routes
 //upvote an answer   
-voteRoutes.post('/upvote',verifyToken, upvoteAnswer);              
+voteRoutes.post('/upvote/:answerId/:userId',verifyToken, upvoteAnswer);              
 //downvote an answer
-voteRoutes.post('/downvote',verifyToken, downvoteAnswer);     
+voteRoutes.post('/downvote/:answerId/:userId',verifyToken, downvoteAnswer);     
 // exports
 export default voteRoutes;

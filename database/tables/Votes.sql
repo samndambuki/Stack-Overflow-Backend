@@ -9,4 +9,10 @@ CREATE TABLE Votes (
 );
 
 
+SELECT * FROM Votes
+
+INSERT INTO Votes (voteId, userId, answerId, upVote, downVote)
+VALUES ('1', '3d4f228f-68b8-4a02-8331-8c42b0c93285', '9ec4f077-e521-498a-8954-d6cbcef84230', 1, 0);
+
+
 DROP TABLE Votes;

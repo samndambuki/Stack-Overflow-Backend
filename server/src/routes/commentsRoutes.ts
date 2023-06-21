@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addComment, deleteComment, getCommentById, getCommentsByAnswerId, getCommentsByQuestionId, updateComment } from "../controllers/commentsController";
+import { addComment, deleteComment, getAllComments, getCommentById, getCommentsByAnswerId, getCommentsByQuestionId, updateComment } from "../controllers/commentsController";
 import { verifyToken } from "../Middlewares/verifyToken";
 
 // initialize router
@@ -8,7 +8,9 @@ const commentsRoutes = Router();
 //gets all comments
 commentsRoutes.get('',verifyToken );  
 //adds a new comment  
-commentsRoutes.post('',verifyToken,addComment);              
+commentsRoutes.post('',verifyToken,addComment);     
+//get all comments
+commentsRoutes.get('',verifyToken,getAllComments);          
 //gets comment by id    
 commentsRoutes.get('/:commentId',verifyToken,getCommentById);    
 //get comment by question id

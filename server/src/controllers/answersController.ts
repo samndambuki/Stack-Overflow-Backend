@@ -58,7 +58,7 @@ export const getAnswersByQuestionId = async (req: Request<{ questionId: string }
 export const addAnswer = async (req: Request, res: Response) => {
     try {
         const answerId = v4answerId();
-        const { userId, questionId, body, upVote, downVote } = req.body;
+        const { userId, questionId, body } = req.body;
 
         const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
@@ -69,8 +69,6 @@ export const addAnswer = async (req: Request, res: Response) => {
             questionId,
             body,
             createdAt:currentDateTime,
-            upVote,
-            downVote,
         });
         
         return res.status(201).json({
@@ -85,7 +83,7 @@ export const addAnswer = async (req: Request, res: Response) => {
 export const updateAnswer = async (req: Request<{ answerId: string }>, res: Response) => {
     try {
         const { answerId } = req.params;
-        const { userId, questionId, body, upVote, downVote } = req.body;
+        const { userId, questionId, body} = req.body;
 
         const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
         
@@ -103,8 +101,6 @@ export const updateAnswer = async (req: Request<{ answerId: string }>, res: Resp
             questionId,
             body,
             updatedAt:currentDateTime,
-            upVote,
-            downVote,
         });
         
         return res.status(200).json({

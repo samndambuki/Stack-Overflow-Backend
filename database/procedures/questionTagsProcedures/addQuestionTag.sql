@@ -1,9 +1,8 @@
 CREATE OR ALTER PROCEDURE addQuestionTag
     @questionId VARCHAR(255),
-    @tagId VARCHAR(255),
-    @isDeleted INT
+    @tagId VARCHAR(255)
 AS
 BEGIN
-    INSERT INTO QuestionTags (questionId, tagId, isDeleted)
-    VALUES (@questionId, @tagId, @isDeleted);
+    INSERT INTO QuestionTags (questionId, tagId)
+    VALUES (@questionId, @tagId);
 END
