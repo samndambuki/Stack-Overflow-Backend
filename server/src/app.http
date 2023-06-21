@@ -46,8 +46,8 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5
 
 ###
 //delete a user
-DELETE http://localhost:4000/users/6edc3b33-8de6-497c-9fc1-4bd17c624a29
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6bnVsbCwiZW1haWxTZW50IjowLCJpc0RlbGV0ZWQiOjAsImlzQWRtaW4iOjAsImlhdCI6MTY4NzI2OTY3MSwiZXhwIjoxNjg3NjI5NjcxfQ.17zo1JJlKKrF2TpZ56czVAupj9gzrJbitHAGkJSduY4
+DELETE http://localhost:4000/users/02e0a4df-b54e-4c11-8b55-5f0c54c2c6b3
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODczNDE1NTIsImV4cCI6MTY4NzcwMTU1Mn0.-3_vm49vNDZfZhjKjEfGI44fZaRIwtth0H4bDLdg_70
 
 
 ####
@@ -56,15 +56,15 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 
- {
-    "email":"techflux6@gmail.com",
-    "password":"N10234424008s"
- }
-
 #  {
-#     "email":"samuelndambuki401@gmail.com",
-#     "password":"N10238114040s"
+#     "email":"test@gmail.com",
+#     "password":"N10234424008s"
 #  }
+
+ {
+    "email":"samuelndambuki401@gmail.com",
+    "password":"N10238114040s"
+ }
 
 
 

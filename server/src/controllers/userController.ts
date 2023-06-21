@@ -152,7 +152,7 @@ export const deleteUser = async (
     
     if (!role) {
       return res.status(401).json({
-        message: "Only admins can get all users.",
+        message: "Only admins can delete users.",
       });
     }
 
@@ -195,6 +195,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = jwt.sign({ ...payload, isAdmin }, process.env.SECRET_KEY as string, {
       expiresIn: '360000s',
     });
+
 
     return res.json({ message: 'Login Successful!', token, isAdmin });
   } catch (error: any) {
