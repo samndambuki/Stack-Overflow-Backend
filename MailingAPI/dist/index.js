@@ -14,15 +14,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_cron_1 = __importDefault(require("node-cron"));
 const welcomeEmail_1 = require("./Email Services/welcomeEmail");
+const preferredAnswerEmail_1 = require("./Email Services/preferredAnswerEmail");
+const databaseHelper_1 = require("./databaseHelper");
 node_cron_1.default.schedule('*/2 * * * * *', () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, welcomeEmail_1.sendWelcomeEmail)(); ///check if there is a new user and send a welcome email
 }));
-// // Schedule the task to run every hour
-// cron.schedule('0 * * * *', async () => {
-//   // Logic to retrieve the users whose answers were marked as preferred
-//   const users = getUsersWithPreferredAnswers();
-//   // Loop through the users and send the preferred answer email
-//   for (const user of users) {
-//     await sendPreferredAnswerEmail(user);
-//   }
-// });
+node_cron_1.default.schedule('*/2 * * * * *', () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // Determine the user who provided the most preferred answer
+        const user = yield determineMostPreferredAnswerUser();
+        if (user) {
+            yield (0, preferredAnswerEmail_1.sendPreferredAnswerEmail)(user); // Send the email to the user
+        }
+    }
+    catch (error) {
+        console.error('Error occurred while sending preferred answer email:', error);
+    }
+}));
+function determineMostPreferredAnswerUser() {
+    return __awaiter(this, void 0, void 0, function* () {
+        // Execute the stored procedure to determine the user with the most preferred answer
+        const result = yield databaseHelper_1.DatabaseHelper.exec('GetMostPreferredAnswerUser');
+        const user = result.recordset[0];
+        return user;
+    });
+}

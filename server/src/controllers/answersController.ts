@@ -58,7 +58,7 @@ export const getAnswersByQuestionId = async (req: Request<{ questionId: string }
 export const addAnswer = async (req: Request, res: Response) => {
     try {
         const answerId = v4answerId();
-        const { userId, questionId, body } = req.body;
+        const { userId, questionId, body,isPreferred } = req.body;
 
         const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
@@ -68,6 +68,7 @@ export const addAnswer = async (req: Request, res: Response) => {
             userId,
             questionId,
             body,
+            isPreferred,
             createdAt:currentDateTime,
         });
         

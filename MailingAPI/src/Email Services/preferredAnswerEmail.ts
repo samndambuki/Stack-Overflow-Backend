@@ -1,21 +1,19 @@
-import mssql from 'mssql';
 import dotenv from 'dotenv';
 import path from 'path';
 import ejs from 'ejs';
-import { sqlConfig } from '../config';
 import { sendMail } from '../Helpers/sendMail';
 import { User } from '../interfaces/userInterface';
+import { DatabaseHelper } from '../databaseHelper';
 
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
+
 export const sendPreferredAnswerEmail = async (user: User) => {
   try {
-    // Establish a connection with the database
-    const pool = await mssql.connect(sqlConfig);
-
+  
     // Render the email template using EJS
     const emailTemplate = await ejs.renderFile(
-      'Templates/preferredAnswer.ejs',
+      'templates/preferredAnswer.ejs',
       { name: user.userName }
     );
 
@@ -31,7 +29,7 @@ export const sendPreferredAnswerEmail = async (user: User) => {
     await sendMail(messageOptions);
 
     // Update the database to mark the email as sent
-    await pool.request().execute('updatePreferredAnswerEmailSent');
+    await DatabaseHelper.exec('updatePreferredAnswerEmailSent');
   } catch (error) {
     console.error(error);
   }

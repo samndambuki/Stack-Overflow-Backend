@@ -1,14 +1,20 @@
 CREATE OR ALTER PROCEDURE updatePreferredAnswerEmailSent
-    @answerId VARCHAR(255)
 AS
 BEGIN
-    UPDATE Users
-    SET emailSent = 1
-    WHERE userId IN (
-        SELECT userId
-        FROM Answers
-        WHERE answerId = @answerId
-    );
-END
+    DECLARE @preferredAnswerId VARCHAR(255);
+
+    -- Get the answer ID of the most preferred answer (based on answerId)
+    SELECT TOP 1 @preferredAnswerId = answerId
+    FROM Answers
+    WHERE isPreferred = 1
+    ORDER BY answerId DESC;
+
+    -- Update the isPreferredEmailSent column for the most preferred answer
+    UPDATE Answers
+    SET isPreferredEmailSent = 1
+    WHERE answerId = @preferredAnswerId;
+END;
+
+
 
 DROP PROCEDURE updatePreferredAnswerEmailSent;

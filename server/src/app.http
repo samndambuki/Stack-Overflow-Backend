@@ -39,7 +39,7 @@ Content-Type: application/json
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6bnVsbCwiZW1haWxTZW50IjowLCJpc0RlbGV0ZWQiOjAsImlzQWRtaW4iOjAsImlhdCI6MTY4NzI3MDI0NSwiZXhwIjoxNjg3NjMwMjQ1fQ.wymK_rFQ6xTGB_48q7DnFWHmgeqTLnN8AeTD43y4Iac
 
 {
-    "userName":"Samuel Ndambuki",
+    "userName":"updated",
     "email":"techflux6@gmail.com",
     "password":"N10234424008s"
 }
@@ -177,9 +177,10 @@ Content-Type: application/json
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
 
 {
-    "userId":"9ec4f077-e521-498a-8954-d6cbcef84230",
-    "questionId":"942da41d-4d83-4f24-8984-27211549489f",
-    "body":"this is the answer"  
+  "userId": "9ec4f077-e521-498a-8954-d6cbcef84230",
+  "questionId": "942da41d-4d83-4f24-8984-27211549489f",
+  "body": "this is the answer",
+  "isPreferred": 1
 }
 
 

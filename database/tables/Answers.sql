@@ -94,12 +94,21 @@ DROP TABLE Answers;
 ALTER TABLE Answers
 ADD isDeleted INT DEFAULT 0;
 
+ALTER TABLE Answers 
+ADD isPreferredEmailSent INT DEFAULT 0;
+
+
+
 ALTER TABLE Answers
 ADD  createdAt DATETIME;
 
 
 ALTER TABLE Answers
 ADD  updatedAt DATETIME;
+
+UPDATE answers
+SET ispreferredEmailSent = 0;
+
 
 
 SELECT * FROM Answers;
