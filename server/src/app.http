@@ -12,10 +12,9 @@ Content-Type: application/json
 
 
 {
-    "userName":"admin",
-    "email":"samuelndambuki401@gmail.com",
-    "password":"N10238114040s",
-    "isAdmin":"true"
+    "userName":"Jona",
+    "email":"jonathanndambuki16@gmail.com",
+    "password":"N10238114040s"
 }
 
 

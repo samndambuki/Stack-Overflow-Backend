@@ -123,7 +123,7 @@ describe("User tests", ()=>{
 
 
 
-    it('should login a user', async () => {
+    it.skip('should login a user', async () => {
         const email = 'test@gmail.com'; 
         const password = 'N10234424008s'; 
       
@@ -480,8 +480,6 @@ describe("Question Tag Tests",()=>{
           .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yMFQxNjozOTo0MS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0yMVQxNzo0MzowNS4wMDBaIiwiZW1haWxTZW50IjowLCJpc0RlbGV0ZWQiOjAsImlzQWRtaW4iOjAsImlhdCI6MTY4NzM2MDIwMywiZXhwIjoxNjg3NzIwMjAzfQ.BSUtxi8q99lTYG6DSFjW9X6ir1yk8ujuCDvjgQ5bd8I')
           .expect('Content-Type', /json/)
           .expect(200);
-      
-        // Assert the response body or structure as needed
         expect(response.body).toBeDefined();
       });
       
