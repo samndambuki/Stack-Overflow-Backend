@@ -20,7 +20,7 @@ export const addUser = async (req: Request, res: Response) => {
     const { error } = registrationSchema.validate(req.body);
 
     if (error) {
-      return res.status(404).json(error.details[0].message);
+      return res.status(400).json(error.details[0].message);
     }
 
     // Generate a unique ID for the user
@@ -188,7 +188,7 @@ export const loginUser = async (req: Request, res: Response) => {
     // Compare the provided password with the hashed password
     const validPassword = await bcrypt.compare(password, hashedPassword);
     if (!validPassword) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(401).json({ message: 'Wrong Credentials' });
     }
 
     // Generate the JWT token
@@ -196,6 +196,7 @@ export const loginUser = async (req: Request, res: Response) => {
       expiresIn: '360000s',
     });
 
+    console.log("isAdmin",isAdmin)
 
     return res.json({ message: 'Login Successful!', token, isAdmin });
   } catch (error: any) {

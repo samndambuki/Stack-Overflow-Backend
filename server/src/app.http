@@ -11,10 +11,19 @@ Content-Type: application/json
 # }
 
 
+# {
+#     "userName":"Jona",
+#     "email":"jonathanndambuki@gmail.com",
+#     "password":"N10238114040s"
+# }
+
+
+
 {
-    "userName":"Jona",
-    "email":"jonathanndambuki16@gmail.com",
-    "password":"N10238114040s"
+    "userName":"Dickson",
+    "email":"dcksngthr5@gmail.com",
+    "password":"N10238114040s",
+    "isAdmin":"true"
 }
 
 
@@ -60,10 +69,15 @@ Content-Type: application/json
 #     "password":"N10234424008s"
 #  }
 
- {
-     "email":"jonathanndambuki16@gmail.com",
+#  {
+#      "email":"jonathanndambuki16@gmail.com",
+#     "password":"N10238114040s"
+#  }
+
+{
+    "email":"dcksngthr55@gmail.com",
     "password":"N10238114040s"
- }
+}
 
 
 

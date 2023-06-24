@@ -14,6 +14,12 @@ CREATE TABLE Users (
 ALTER TABLE Users
 ADD UNIQUE (email)
 
+ALTER TABLE users
+ALTER COLUMN isAdmin BIT;
+
+
+
+
 
 -- retrieves foreign key statements associated with answers table
 SELECT
@@ -81,6 +87,12 @@ ALTER TABLE Comments
 DROP CONSTRAINT  FK__Comments__userId__34C8D9D1
 
 
+ALTER TABLE Answers
+DROP CONSTRAINT FK__Answers__userId__3587F3E0
+
+
+ALTER TABLE Answers
+ADD CONSTRAINT FK_Answers_UserId FOREIGN KEY (userId) REFERENCES Users (userId);
 
 
 
@@ -88,7 +100,7 @@ DROP CONSTRAINT  FK__Comments__userId__34C8D9D1
 SELECT * FROM Users;
 
 DELETE FROM Users
-WHERE email = 'samuelndambuki401@gmail.com';
+WHERE userId = '9ec4f077-e521-498a-8954-d6cbcef84230';
 
 
 
