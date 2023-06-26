@@ -3,19 +3,11 @@ import { v4 as v4questionId } from 'uuid';
 import { DatabaseHelper } from '../databaseHelper';
 import moment from 'moment';
 import { ExtendedRequest } from '../interfaces/ExtendedRequest';
+import { v4 as uuidv4 } from 'uuid';
 
 // GET all Questions
 export const getQuestions = async (req: ExtendedRequest, res: Response) => {
   try {
-
-
-    const role = req.info?.isAdmin as boolean
-    
-    if (!role) {
-      return res.status(401).json({
-        message: "Only admins can get all questions",
-      });
-    }
 
     const questions = (await DatabaseHelper.exec('getQuestions')).recordset;
 
@@ -53,9 +45,34 @@ export const getQuestionById = async (req: Request<{ questionId: string }>, res:
 export const addQuestion = async (req: ExtendedRequest, res: Response) => {
   try {
     const questionId = v4questionId();
-    const { userId, title, details, tried, tags } = req.body;
+    const {title, details, tried, tags } = req.body;
+    const userId = req.info?.userId as string;
+
+
 
     const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    const existingTag = await DatabaseHelper.exec('getTagByName', { tagName: tags });
+
+    let tagId: string;
+
+    if (existingTag && existingTag.recordset.length > 0) {
+      // Tag already exists, use its tagId
+      tagId = existingTag.recordset[0].tagId;
+    } else {
+      // Tag doesn't exist, generate a new tagId
+      tagId = uuidv4();
+
+      // Insert the new tag into the Tags table
+      await DatabaseHelper.exec('addTag', {
+        tagId,
+        tagName: tags,
+      });
+    }
+
+    console.log(tagId);
+    
+
     
     await DatabaseHelper.exec('addQuestion', {
       questionId,
@@ -64,6 +81,7 @@ export const addQuestion = async (req: ExtendedRequest, res: Response) => {
       details,
       tried,
       tags,
+      tagId,
       createdAt:currentDateTime,
     });
 

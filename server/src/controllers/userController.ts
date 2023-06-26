@@ -196,7 +196,6 @@ export const loginUser = async (req: Request, res: Response) => {
       expiresIn: '360000s',
     });
 
-    console.log("isAdmin",isAdmin)
 
     return res.json({ message: 'Login Successful!', token, isAdmin });
   } catch (error: any) {

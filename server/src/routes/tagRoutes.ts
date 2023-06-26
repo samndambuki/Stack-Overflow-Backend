@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addTag, deleteTag, getTagById, getTags, updateTag } from "../controllers/tagController";
+import { addTag, deleteTag, getDistinctTags, getQuestionsByTag, getTagById, getTags, updateTag } from "../controllers/tagController";
 import { verifyToken } from "../Middlewares/verifyToken";
 
 // initialize router
@@ -14,6 +14,12 @@ tagRoutes.get('/:tagId',verifyToken,getTagById);
 //deletes a specific tag
 tagRoutes.delete('/:tagId',verifyToken,deleteTag);  
 //updates a specific tag
-tagRoutes.put('/:tagId',verifyToken,updateTag);   
+tagRoutes.put('/:tagId',verifyToken,updateTag);  
+//get distinct tags
+ //gets tag by id    
+tagRoutes.get('/distinctTags',verifyToken,getDistinctTags);  
+//gets question by tag id
+tagRoutes.get('/:tagId/questions',verifyToken,getQuestionsByTag);  
+
 // exports
 export default tagRoutes;

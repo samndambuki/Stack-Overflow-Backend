@@ -1,0 +1,6 @@
+CREATE PROCEDURE getDistinctTags
+AS
+BEGIN
+    SELECT DISTINCT tagName
+    FROM Tags;
+END;

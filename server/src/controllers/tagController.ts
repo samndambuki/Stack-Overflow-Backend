@@ -122,3 +122,30 @@ export const deleteTag = async (req: ExtendedRequest, res: Response) => {
     res.status(500).json(`ERROR: ${error.message}`);
   }
 };
+
+// GET /tags
+export const getDistinctTags = async (_req: Request, res: Response) => {
+  try {
+    const distinctTags = await DatabaseHelper.exec('getDistinctTags');
+
+    // Extract the tag names from the fetched data
+    const tags = distinctTags.recordset.map((tag: any) => tag.tagName);
+
+    res.status(200).json(tags);
+  } catch (error: any) {
+    res.status(500).json(`ERROR: ${error.message}`);
+  }
+};
+
+export const getQuestionsByTag = async (req: Request<{ tagId: string }>, res: Response) => {
+  try {
+    const { tagId } = req.params;
+
+    const questions = await DatabaseHelper.exec('getQuestionsByTag', { tagId });
+
+    res.status(200).json(questions.recordset);
+  } catch (error: any) {
+    res.status(500).json(`ERROR: ${error.message}`);
+  }
+};
+

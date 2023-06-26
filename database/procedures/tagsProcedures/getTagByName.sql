@@ -1,0 +1,6 @@
+CREATE OR ALTER PROCEDURE getTagByName
+  @tagName NVARCHAR(255)
+AS
+BEGIN
+  SELECT * FROM Tags WHERE tagName = @tagName;
+END
