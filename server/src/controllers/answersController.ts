@@ -36,8 +36,16 @@ export const getAnswerById = async (req: Request<{ answerId: string }>, res: Res
                 message: 'Answer not found!',
             });
         }
+
+        // Get the total upvotes and downvotes for the answer from the Votes table
+    const voteCounts = (await DatabaseHelper.exec('getVoteCountsByAnswerId', { answerId })).recordset[0];
+    const upvotes = voteCounts ? voteCounts.upvotes : 0;
+    const downvotes = voteCounts ? voteCounts.downvotes : 0;
+
+    // Add the upvote and downvote counts to the answer object
+    const answerWithVoteCounts = { ...answer, upvotes, downvotes };
         
-        return res.status(200).json(answer);
+        return res.status(200).json( answerWithVoteCounts);
     } catch (error: any) {
         return res.status(500).json(`ERROR: ${error.message}`);
     }
