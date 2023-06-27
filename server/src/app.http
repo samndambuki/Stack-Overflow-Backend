@@ -70,20 +70,20 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 
-#  {
-#     "email":"testing@gmail.com",
-#     "password":"N10234424008s"
-#  }
+ {
+    "email":"testing@gmail.com",
+    "password":"N10234424008s"
+ }
 
 #  {
 #      "email":"jonathanndambuki16@gmail.com",
 #     "password":"N10238114040s"
 #  }
 
-{
-    "email":"dcksngthr55@gmail.com",
-    "password":"N10238114040s"
-}
+# {
+#     "email":"dcksngthr55@gmail.com",
+#     "password":"N10238114040s"
+# }
 
 
 
@@ -205,15 +205,13 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5
 ###
 //ANSWER REQUESTS
 //add an answer
-POST http://localhost:4000/answers
+POST http://localhost:4000/answers/4e69f2ec-290a-4a49-8a45-2c0c7cdbe69e
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwNWI3Y2UyZS04YjRmLTQ3N2YtYTM2Mi0wNzk2MzI0YTgwNzQiLCJ1c2VyTmFtZSI6IlRlc3RpbmciLCJlbWFpbCI6InRlc3RpbmdAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yNFQxMToxMzowOC4wMDBaIiwidXBkYXRlZEF0IjpudWxsLCJlbWFpbFNlbnQiOjAsImlzRGVsZXRlZCI6MCwiaXNBZG1pbiI6MCwiaWF0IjoxNjg3ODQyMzI3LCJleHAiOjE2ODgyMDIzMjd9.GFIdEMz0febA6d25kIGRiPgbc8wbs-1BfR6AsYEK93w
 
 {
-  "userId": "9ec4f077-e521-498a-8954-d6cbcef84230",
-  "questionId": "942da41d-4d83-4f24-8984-27211549489f",
   "body": "this is the answer",
-  "isPreferred": 1
+  "isPreferred": 0
 }
 
 
@@ -250,9 +248,9 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQx
 # VOTES REQUESTS
 ####
 //upvote an asnwer
-POST http://localhost:4000/votes/upvote/3d4f228f-68b8-4a02-8331-8c42b0c93285/9ec4f077-e521-498a-8954-d6cbcef84230
+POST http://localhost:4000/votes/upvote/3d4f228f-68b8-4a02-8331-8c42b0c93285
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwNWI3Y2UyZS04YjRmLTQ3N2YtYTM2Mi0wNzk2MzI0YTgwNzQiLCJ1c2VyTmFtZSI6IlRlc3RpbmciLCJlbWFpbCI6InRlc3RpbmdAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yNFQxMToxMzowOC4wMDBaIiwidXBkYXRlZEF0IjpudWxsLCJlbWFpbFNlbnQiOjAsImlzRGVsZXRlZCI6MCwiaXNBZG1pbiI6MCwiaWF0IjoxNjg3ODQzNzUxLCJleHAiOjE2ODgyMDM3NTF9.04-CyKVks8FNWTcJ3QAesELR75rEWcWebsEksi13e94
 
 {
 
@@ -260,9 +258,9 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQx
 
 ###
 //downvote an answer
-POST http://localhost:4000/votes/downvote/3d4f228f-68b8-4a02-8331-8c42b0c93285/9ec4f077-e521-498a-8954-d6cbcef84230
+POST http://localhost:4000/votes/downvote/3d4f228f-68b8-4a02-8331-8c42b0c93285
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMzRiYzBhZC01ZjA0LTQxYTEtYTdkYi1hZjVmOThjNGRmMTkiLCJ1c2VyTmFtZSI6ImFkbWluIiwiZW1haWwiOiJzYW11ZWxuZGFtYnVraTQwMUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE2OjQwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImVtYWlsU2VudCI6MCwiaXNEZWxldGVkIjowLCJpc0FkbWluIjoxLCJpYXQiOjE2ODcyODc1MjAsImV4cCI6MTY4NzY0NzUyMH0.cN9dKozEsZxiBY_vfP256BUYEprQIso4WvsfuEm7PWs
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwNWI3Y2UyZS04YjRmLTQ3N2YtYTM2Mi0wNzk2MzI0YTgwNzQiLCJ1c2VyTmFtZSI6IlRlc3RpbmciLCJlbWFpbCI6InRlc3RpbmdAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yNFQxMToxMzowOC4wMDBaIiwidXBkYXRlZEF0IjpudWxsLCJlbWFpbFNlbnQiOjAsImlzRGVsZXRlZCI6MCwiaXNBZG1pbiI6MCwiaWF0IjoxNjg3ODQzNzUxLCJleHAiOjE2ODgyMDM3NTF9.04-CyKVks8FNWTcJ3QAesELR75rEWcWebsEksi13e94
 
 
 

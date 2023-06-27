@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { v4 as v4answerId } from 'uuid';
 import { DatabaseHelper } from '../databaseHelper';
 import moment from 'moment';
+import { ExtendedRequest } from '../interfaces/ExtendedRequest';
 
 
 //GET all Answers
@@ -55,10 +56,13 @@ export const getAnswersByQuestionId = async (req: Request<{ questionId: string }
 };
 
 // ADD Answer
-export const addAnswer = async (req: Request, res: Response) => {
+export const addAnswer = async (req: ExtendedRequest, res: Response) => {
     try {
         const answerId = v4answerId();
-        const { userId, questionId, body,isPreferred } = req.body;
+        const {body,isPreferred } = req.body;
+        const questionId = req.params.questionId;
+
+        const userId  = req.info?.userId as string;
 
         const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
 

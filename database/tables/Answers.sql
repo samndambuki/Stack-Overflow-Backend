@@ -109,6 +109,38 @@ ADD  updatedAt DATETIME;
 UPDATE answers
 SET ispreferredEmailSent = 0;
 
+ALTER TABLE Answers
+ADD upvotes INT DEFAULT 0,
+    downvotes INT DEFAULT 0;
+
+ALTER TABLE Answers
+DROP COLUMN upvotes;
+
+ALTER TABLE Answers
+DROP COLUMN downvotes;
+
+EXEC sp_depends 'Answers.upvotes';
+
+SELECT COLUMN_NAME
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Answers' AND COLUMN_NAME = 'upvotes';
+
+ALTER TABLE Answers
+DROP CONSTRAINT DF__Answers__upvotes__5E8A0973;
+
+
+
+
+ALTER TABLE Answers
+ADD upvotes  INT DEFAULT 0,
+    downvotes INT DEFAULT 0
+
+
+ALTER TABLE Answers
+ADD CONSTRAINT FK_Answers_Votes
+FOREIGN KEY (voteId)
+REFERENCES Votes(voteId);
+
 
 
 SELECT * FROM Answers;

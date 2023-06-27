@@ -8,7 +8,7 @@ const answerRoutes = Router();
 //gets all answers
 answerRoutes.get('',verifyToken,getAnswers);  
 //adds a new answer    
-answerRoutes.post('',verifyToken, addAnswer);              
+answerRoutes.post('/:questionId',verifyToken, addAnswer);              
 //gets answer by id    
 answerRoutes.get('/:answerId',verifyToken, getAnswerById);    
 //deletes a specific answer

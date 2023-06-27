@@ -2,19 +2,14 @@ import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { DatabaseHelper } from '../databaseHelper';
 import { User } from '../interfaces/userInterface';
+import { ExtendedRequest } from '../interfaces/ExtendedRequest';
 
 // Upvote an answer
-export const upvoteAnswer = async (req: Request<{ answerId: string; userId: string }>, res: Response) => {
+export const upvoteAnswer = async (req: ExtendedRequest, res: Response) => {
   try {
-    const { answerId, userId } = req.params;
+    const { answerId } = req.params;
 
-    // Check if the user is an admin
-    const user: User = (await DatabaseHelper.exec('getUserById', { userId })).recordset[0];
-    if (user.isAdmin) {
-      return res.status(403).json({
-        message: 'Admin users cannot perform upvote/downvote operations.',
-      });
-    }
+    const userId  = req.info?.userId as string;
 
     // Check if the user has already upvoted
     const existingVote = await DatabaseHelper.exec('getVoteByAnswerAndUser', { answerId, userId });
@@ -34,6 +29,9 @@ export const upvoteAnswer = async (req: Request<{ answerId: string; userId: stri
       downVote: 0,
     });
 
+     // Increment the upvotes count in the Answers table
+     await DatabaseHelper.exec('incrementUpvotes', { answerId });
+
     return res.status(200).json({
       message: 'Answer upvoted successfully.',
     });
@@ -45,17 +43,11 @@ export const upvoteAnswer = async (req: Request<{ answerId: string; userId: stri
 };
 
 // Downvote an answer
-export const downvoteAnswer = async (req: Request<{ answerId: string; userId: string }>, res: Response) => {
+export const downvoteAnswer = async (req: ExtendedRequest, res: Response) => {
   try {
-    const { answerId, userId } = req.params;
+    const { answerId} = req.params;
 
-    // Check if the user is an admin
-    const user: User = (await DatabaseHelper.exec('getUserById', { userId })).recordset[0];
-    if (user.isAdmin) {
-      return res.status(403).json({
-        message: 'Admin users cannot perform upvote/downvote operations.',
-      });
-    }
+    const userId  = req.info?.userId as string;
 
     // Check if the user has already downvoted
     const existingVote = await DatabaseHelper.exec('getVoteByAnswerAndUser', { answerId, userId });
@@ -74,6 +66,10 @@ export const downvoteAnswer = async (req: Request<{ answerId: string; userId: st
       upVote: 0,
       downVote: 1,
     });
+
+
+    // Increment the downvotes count in the Answers table
+    await DatabaseHelper.exec('incrementDownvotes', { answerId });
 
     return res.status(200).json({
       message: 'Answer downvoted successfully.',
