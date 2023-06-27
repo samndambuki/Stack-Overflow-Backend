@@ -108,14 +108,6 @@ export const updateUser = async (
   try {
     const { userId } = req.params;
 
-    const role = req.info?.isAdmin as boolean
-    
-    if (role) {
-      return res.status(401).json({
-        message: "Only users can update their profile",
-      });
-    }
-
     const { userName, email, password } = req.body;
 
     // Hash the password

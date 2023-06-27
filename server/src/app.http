@@ -19,12 +19,12 @@ Content-Type: application/json
 
 
 
-# {
-#     "userName":"Dickson",
-#     "email":"dcksngthr5@gmail.com",
-#     "password":"N10238114040s",
-#     "isAdmin":"true"
-# }
+{
+    "userName":"Dickson",
+    "email":"dcksngthr5@gmail.com",
+    "password":"N10238114040s",
+    "isAdmin":"true"
+}
 
 # {
 #     "userName":"Unknown",
@@ -50,11 +50,11 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5O
 //update users
 PUT http://localhost:4000/users/9ec4f077-e521-498a-8954-d6cbcef84230
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZWM0ZjA3Ny1lNTIxLTQ5OGEtODk1NC1kNmNiY2VmODQyMzAiLCJ1c2VyTmFtZSI6IlNhbXVlbCBOZGFtYnVraSIsImVtYWlsIjoidGVjaGZsdXg2QGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMTY6Mzk6NDEuMDAwWiIsInVwZGF0ZWRBdCI6bnVsbCwiZW1haWxTZW50IjowLCJpc0RlbGV0ZWQiOjAsImlzQWRtaW4iOjAsImlhdCI6MTY4NzI3MDI0NSwiZXhwIjoxNjg3NjMwMjQ1fQ.wymK_rFQ6xTGB_48q7DnFWHmgeqTLnN8AeTD43y4Iac
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwNWI3Y2UyZS04YjRmLTQ3N2YtYTM2Mi0wNzk2MzI0YTgwNzQiLCJ1c2VyTmFtZSI6IlRlc3RpbmciLCJlbWFpbCI6InRlc3RpbmdAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yNFQxMToxMzowOC4wMDBaIiwidXBkYXRlZEF0IjpudWxsLCJlbWFpbFNlbnQiOjAsImlzRGVsZXRlZCI6MCwiaXNBZG1pbiI6MCwiaWF0IjoxNjg3OTAwMTE0LCJleHAiOjE2ODgyNjAxMTR9.2-UuZ5Hk7QnWzDuzdpMoYMLPZSUQ9ZlaT24N1BNcniI
 
 {
-    "userName":"updated",
-    "email":"techflux6@gmail.com",
+    "userName":"test",
+    "email":"test@gmail.com",
     "password":"N10234424008s"
 }
 
