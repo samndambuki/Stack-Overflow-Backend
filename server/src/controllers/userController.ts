@@ -83,14 +83,6 @@ export const getUserById = async (
 export const getUsers = async (req: ExtendedRequest, res: Response) => {
   try {
 
-    const role = req.info?.isAdmin as boolean
-
-     if (!role) {
-       return res.status(401).json({
-         message: "Only admins can get all users.",
-       });
-     }
-
     // Execute the stored procedure to get all users
     const users = await (await DatabaseHelper.exec("getUsers")).recordset;
 

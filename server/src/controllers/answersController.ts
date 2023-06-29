@@ -55,7 +55,20 @@ export const getAnswerById = async (req: Request<{ answerId: string }>, res: Res
 export const getAnswersByQuestionId = async (req: Request<{ questionId: string }>, res: Response) => {
     try {
         const { questionId } = req.params;
+
+        console.log('QuestionId',questionId);
+        
+        
         const answers = (await DatabaseHelper.exec('getAnswersByQuestionId', { questionId })).recordset;
+
+        console.log('answers',answers);
+        
+          
+        if (answers.length === 0) {
+            return res.status(404).json({
+                message: 'No answers found for the specified question ID.',
+            });
+        }
         
         return res.status(200).json(answers);
     } catch (error: any) {
@@ -91,6 +104,8 @@ export const addAnswer = async (req: ExtendedRequest, res: Response) => {
         return res.status(500).json(`ERROR: ${error.message}`);
     }
 };
+
+
 
 // UPDATE Answer
 export const updateAnswer = async (req: Request<{ answerId: string }>, res: Response) => {
